@@ -1,6 +1,6 @@
 const spawn = require("child_process").spawn;
 
-let image_path='C:\\Users\\subek\\Desktop\\python-node\\images\\tree-736885__340.jpg'
+let image_path='C:\\Users\\subek\\Desktop\\python-in-node\\images\\tree-736885__340.jpg'
 let number_of_images=10
 
 //  send parameters in the array after "./scriptName.py"
