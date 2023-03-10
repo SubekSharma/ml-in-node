@@ -13,7 +13,6 @@ image_data = response.content
 image_variable = BytesIO(image_data)
 
 
-
 # import os
 # execution_path = os.getcwd()
 
@@ -28,14 +27,17 @@ image_variable = BytesIO(image_data)
 
 
 prediction = ImageClassification()
-prediction.setModelTypeAsInceptionV3() #Here i used Inception however any one could be used 
+# Here i used Inception however any one could be used
+prediction.setModelTypeAsInceptionV3()
 
-#Directly give the path where the model is stored or use above code to join paths 
-prediction.setModelPath('C:\\Users\\subek\\Desktop\\python-in-node\\inception_v3_google-1a9a5a14.pth')
+# Directly give the path where the model is stored or use above code to join paths
+prediction.setModelPath(
+    'C:\\Users\\subek\\Desktop\\python-in-node\\inception_v3_google-1a9a5a14.pth')
 prediction.loadModel()
 
-predictions, probabilities = prediction.classifyImage("C:\\Users\\subek\\Desktop\\python-in-node\\img.jpg", result_count=10)
+# Give path to the image which is to be classified
+predictions, probabilities = prediction.classifyImage(
+    image_variable, result_count=int(sys.argv[2]))
 for eachPrediction, eachProbability in zip(predictions, probabilities):
     # print(eachPrediction , " : " , eachProbability)
-    print(eachPrediction )
-
+    print(eachPrediction)

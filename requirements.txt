@@ -10,3 +10,4 @@ scipy>=1.7.3
 matplotlib>=3.4.3
 mock==4.0.3
 deepimagesearch
+requests
