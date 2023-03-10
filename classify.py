@@ -1,6 +1,7 @@
 import sys
 import requests
 from io import BytesIO
+from PIL import Image
 from imageai.Classification import ImageClassification
 
 # Send a GET request to the image URL
@@ -9,9 +10,8 @@ response = requests.get(sys.argv[1])
 # Get the image data from the response
 image_data = response.content
 
-# Store the image data as a variable
-image_variable = BytesIO(image_data)
-
+# Store the image data as a variable (here we are using PIL object and not Byte object because we cannot manipulate byte object like an image to crop and preprocess )
+image_variable = Image.open(BytesIO(image_data))
 
 # import os
 # execution_path = os.getcwd()
@@ -41,3 +41,6 @@ predictions, probabilities = prediction.classifyImage(
 for eachPrediction, eachProbability in zip(predictions, probabilities):
     # print(eachPrediction , " : " , eachProbability)
     print(eachPrediction)
+
+
+
