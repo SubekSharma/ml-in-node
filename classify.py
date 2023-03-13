@@ -27,12 +27,12 @@ image_variable = Image.open(BytesIO(image_data))
 
 
 prediction = ImageClassification()
-# Here i used Inception however any one could be used
+# Here i used pretrained inception Inception model however any one could be used
 prediction.setModelTypeAsInceptionV3()
 
 # Directly give the path where the model is stored or use above code to join paths
 prediction.setModelPath(
-    'C:\\Users\\subek\\Desktop\\python-in-node\\inception_v3_google-1a9a5a14.pth')
+    'C:\\Users\\subek\\Desktop\\ml-in-node\\inception_v3_google-1a9a5a14.pth')
 prediction.loadModel()
 
 # Give path to the image which is to be classified
